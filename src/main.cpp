@@ -6,7 +6,7 @@
 #include "config.hpp"
 
 
-std::string g_Version = "0.1.2";
+std::string g_Version = "0.1.3";
 
 std::string default_path()
 {

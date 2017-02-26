@@ -63,8 +63,16 @@ public:
     int _client_ip;
 
 private:
-
     Engine                      *_ev;
-    ProxyClient                 *_partner;
     state                       _state;
+
+    ProxyClient *_partner;
 };
+
+/*
+class ProxyConnection
+{
+    ProxyClient *m_Local;       // local connection, to browser
+    ProxyClient *m_Remote;      // remote connection, to http(s) host
+};
+*/

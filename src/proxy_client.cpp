@@ -307,7 +307,7 @@ void ProxyClient::onRead(const std::string &str)
             return;
         }
 
-        if (_partner->getState() != ProxyClient::state::WANT_WRITE_TO_TARGET)
+        if (_partner->getState() != ProxyClient::state::WANT_WRITE_TO_CLI)
         {
             _ev->changeEvents(_partner, engine::event_t::EV_WRITE);
             _partner->nextState(ProxyClient::state::WANT_WRITE_TO_CLI);
@@ -342,7 +342,6 @@ void ProxyClient::onWrite()
     logd3("onWrite [sd: {0}, partner: {1}, state: {2}]", _sd, ((_partner)? _partner->sd() : -1), state2string(_state));
 
     Client *cs = static_cast<Client*>(_partner);
-    //logd5("partner: ", (void*)_partner);
     if (cs == nullptr)
     {
         loge("PARTNER IS NULL ON WRITE");
